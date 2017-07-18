@@ -1,6 +1,5 @@
 const express = require('express');
 var mongoose = require('mongoose');
-mongoose.Promise = global.Promise;
 const bodyParser = require('body-parser');
 var Note = require('./models/notes');
 const app = express();
@@ -24,7 +23,13 @@ console.log('Server is running on port 3030');
 
 //Testing db models
 var myFirstNote = new Note({subject:'Test Note',comment: 'This is my first note!'});
-console.log(myFirstNote.subject);
-console.log(myFirstNote.comment);
+//console.log(myFirstNote.subject);
+//console.log(myFirstNote.comment);
 
-myFirstNote.signature();
+//myFirstNote.signature();
+
+
+myFirstNote.save(function(err, myFirstNote){
+  if (err) return console.error(err);
+  myFirstNote.signature();
+});
