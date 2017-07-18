@@ -29,7 +29,12 @@ var myFirstNote = new Note({subject:'Test Note',comment: 'This is my first note!
 //myFirstNote.signature();
 
 
-myFirstNote.save(function(err, myFirstNote){
+// myFirstNote.save(function(err, myFirstNote){
+//   if (err) return console.error(err);
+//   myFirstNote.signature();
+// });
+
+Note.findOne({'subject':'Test Note'},function (err, myFirstNote) {
   if (err) return console.error(err);
-  myFirstNote.signature();
+  console.log(myFirstNote);
 });
