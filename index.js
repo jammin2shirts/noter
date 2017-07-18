@@ -26,3 +26,4 @@ console.log('Server is running on port 3030');
 var myFirstNote = new Note({subject:'Test Note',comment: 'This is my first note!'});
 console.log(myFirstNote.subject);
 console.log(myFirstNote.comment);
+console.log(myFirstNote.comment);
