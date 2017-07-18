@@ -10,4 +10,9 @@ var notesSchema = new schema({
   collection: 'userNotes'
 });
 
+notesSchema.methods.signature= function (){
+  var footer = 'bens signture';
+  console.log(footer);
+};
+
 module.exports = mongoose.model('userNotes', notesSchema);
