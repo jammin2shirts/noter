@@ -27,8 +27,6 @@ var myFirstNote = new Note({subject:'Test Note',comment: 'This is my first note!
 //console.log(myFirstNote.comment);
 
 //myFirstNote.signature();
-
-
 // myFirstNote.save(function(err, myFirstNote){
 //   if (err) return console.error(err);
 //   myFirstNote.signature();
