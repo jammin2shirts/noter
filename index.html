@@ -5,11 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
-
     <script src="node_modules/angular/angular.min.js"></script>
     <script src="frontEndJs/main.js"></script>
   </head>
   <body>
     <h1>Note Me Something</h1>
+    <div class="container-fluid">
+      <div ng-controller="savedNotesController">
+        <h3>Your Saved Notes</h3>
+
+        <div class= panel panel-default ng-repeat="note in notes">
+          <p class="panel-body">Subject: {{note.subject}} | Comment: {{note.comment}}</p>
+        </div>
+      </div>
+    </div>
+
   </body>
 </html>

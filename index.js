@@ -2,6 +2,7 @@ const express = require('express');
 var mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 var Note = require('./models/notes');
+var router = express.Router();
 const app = express();
 
 //Place the app can find the index page
@@ -35,4 +36,13 @@ var myFirstNote = new Note({subject:'Test Note',comment: 'This is my first note!
 Note.findOne({'subject':'Test Note'},function (err, myFirstNote) {
   if (err) return console.error(err);
   console.log(myFirstNote);
+});
+
+//ROUTES
+// app.get('/routes', function (req, res) {
+//   res.send(routes);
+//   console.log('Routes');
+// });
+router.get('/routes', function (req, res) {
+  console.log('router routes');
 });
