@@ -17,8 +17,10 @@
   },
   "homepage": "https://github.com/jammin2shirts/noter#readme",
   "dependencies": {
+    "angular": "^1.6.5",
+    "body-parser": "*",
+    "bootstrap": "^3.3.7",
     "express": "*",
-    "mongoose": "*",
-    "body-parser": "*"
+    "mongoose": "*"
   }
 }
