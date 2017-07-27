@@ -33,6 +33,8 @@ var myFirstNote = new Note({subject:'Test Note',comment: 'This is my first note!
 //   myFirstNote.signature();
 // });
 
+//Hey there 
+
 Note.findOne({'subject':'Test Note'},function (err, myFirstNote) {
   if (err) return console.error(err);
   console.log(myFirstNote);
