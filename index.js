@@ -1,8 +1,8 @@
 const express = require('express');
 var mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-var Note = require('./models/notes');
-var router = express.Router();
+//var router = express.Router();
+var router = require('./routes/routes.js');
 const app = express();
 
 //Place the app can find the index page
@@ -22,29 +22,5 @@ db.once('open', function() {
 app.listen(3030);
 console.log('Server is running on port 3030');
 
-//Testing db models
-var myFirstNote = new Note({subject:'Test Note',comment: 'This is my first note!'});
-//console.log(myFirstNote.subject);
-//console.log(myFirstNote.comment);
-
-//myFirstNote.signature();
-// myFirstNote.save(function(err, myFirstNote){
-//   if (err) return console.error(err);
-//   myFirstNote.signature();
-// });
-
-//Hey there wewewew
-//asdas
-Note.findOne({'subject':'Test Note'},function (err, myFirstNote) {
-  if (err) return console.error(err);
-  console.log(myFirstNote);
-});
-
-//ROUTES
-// app.get('/routes', function (req, res) {
-//   res.send(routes);
-//   console.log('Routes');
-// });
-router.get('/routes', function (req, res) {
-  console.log('router routes');
-});
+//Send requests to the router controller
+app.use('/', router);
