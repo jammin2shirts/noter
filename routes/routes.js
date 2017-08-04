@@ -19,6 +19,14 @@ router.get('/findAll', function (req, res) {
   });
 });
 
+router.post('/saveNote', function (req, res){
+  console.log(req.body.subject + 'hi from router');
+  var newNote = new Note({subject: req.body.subject , comment: req.body.comment});
+  newNote.save(function(err, req){
+    if (err) return console.error(err);
+  });
+});
+
 module.exports = router;
 
 

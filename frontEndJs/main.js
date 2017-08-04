@@ -11,4 +11,17 @@ noterApp.controller("savedNotesController", function($scope, $http){
 
   startUp();
 
+ $scope.saveNote = {};
+ $scope.update = function(newNote){
+   //$scope.saveNote = angular.copy(newNote);
+   $http.post('/saveNote', newNote).then(function(response){
+     console.log(response.data);
+     startUp();
+   });
+ };
+$scope.reset = function(){
+  $scope.newNote = angular.copy($scope.saveNote);
+};
+
+
 });

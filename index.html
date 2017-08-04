@@ -14,9 +14,19 @@
       <div ng-controller="savedNotesController">
         <h3>Your Saved Notes</h3>
 
-        <div class= panel panel-default ng-repeat="note in notes">
-          <p class="panel-body">Subject: {{note.subject}} | Comment: {{note.comment}}</p>
-        </div>
+        <form novalidate class="simple-form">
+          <label>Subject: <input type="text" ng-model="newNote.subject" /><br />
+          <label>Note: <input type="text" ng-model="newNote.comment" /><br />
+          <input type="button" ng-click="reset()" value="Reset" />
+          <input type="submit" ng-click="update(newNote)" value="Save" />
+
+          <div class= panel panel-default ng-repeat="note in notes">
+            <p class="panel-body">Subject: {{note.subject}} | Comment: {{note.comment}}</p>
+          </div>
+        </form>
+
+          <pre>newNote = {{newNote | json}}</pre>
+          <pre>saveNote = {{saveNote | json}}</pre>
       </div>
     </div>
 
