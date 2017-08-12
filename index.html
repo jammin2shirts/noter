@@ -18,10 +18,23 @@
           <label>Subject: <input type="text" ng-model="newNote.subject" /><br />
           <label>Note: <input type="text" ng-model="newNote.comment" /><br />
           <input type="button" ng-click="reset()" value="Reset" />
-          <input type="submit" ng-click="update(newNote)" value="Save" />
+          <input type="submit" ng-click="save(newNote)" value="Save" />
+
 
           <div class= panel panel-default ng-repeat="note in notes">
-            <p class="panel-body">Subject: {{note.subject}} | Comment: {{note.comment}}</p>
+
+            <div ng-hide=updateWrapper>
+              <p class="panel-body" ng-click="updateWrapper=true">ID {{note._id}} | Subject: {{note.subject}} | Comment: {{note.comment}}</p>
+            </div>
+
+            <div ng-show=updateWrapper>
+              <p class="panel-body">
+                <input type="text" ng-model="changeNote.subject" ng-value="note.subject" />
+                <input type="text" ng-model="changeNote.comment" ng-value="note.comment"/>
+                <input type="button" ng-click="update(changeNote, note)" value="Update" />
+                <input type="button" ng-click="delete(changeNote)" value="Delete" />
+              </p>
+            </div>
           </div>
         </form>
 

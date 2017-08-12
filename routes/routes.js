@@ -27,6 +27,35 @@ router.post('/saveNote', function (req, res){
   });
 });
 
+router.put('/updateNote', function(req,res){
+  if(req.body.subject == null){
+    console.log("just update the comment");
+    Note.update({_id: req.body._id},{ $set: { comment: req.body.comment}},
+      function(err, res){
+        if (err) return console.error(err);
+      });
+  };
+
+  if(req.body.comment == null){
+    console.log("just update the subject");
+    Note.update({_id: req.body._id},{ $set: {subject: req.body.subject}},
+      function(err, res){
+        if (err) return console.error(err);
+      });
+  };
+
+  if(req.body.subject != null && req.body.comment != null){
+    console.log("update both");
+    Note.update({_id: req.body._id},{ $set: {subject: req.body.subject, comment: req.body.comment}},
+      function(err, res){
+        if (err) return console.error(err);
+      });
+  };
+  //var updateNote = new Note({_id: req.body._id ,subject: req.body.subject, comment: req.body.comment
+  //updateNote.update(function(err, req));
+
+});
+
 module.exports = router;
 
 
