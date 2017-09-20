@@ -1,2 +1,2 @@
 # noter
-note taking app ya
+note taking app yah
